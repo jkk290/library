@@ -28,8 +28,14 @@ function addBook(title, author, pages, read) {
 addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
 addBook('Hello World', 'McHelloFace', 150, false);
 
-function displayBook() {
-    
-}
+const booksContainer = document.querySelector('#books-container');
 
-// console.log(myBooks);
+function displayBook(book) {
+    const bookCard = document.createElement('div');
+    bookCard.className = 'bookCard'
+    console.log('This is book.info test: ' + book.info());
+    bookCard.textContent = book.info();
+    booksContainer.appendChild(bookCard);
+};
+
+myBooks.forEach(displayBook);
