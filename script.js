@@ -25,7 +25,11 @@ function addBook(title, author, pages, read) {
 
 };
 
-// addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
-// addBook('Hello World', 'McHelloFace', 150, false);
+addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
+addBook('Hello World', 'McHelloFace', 150, false);
+
+function displayBook() {
+    
+}
 
 // console.log(myBooks);
