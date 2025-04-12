@@ -10,8 +10,26 @@
     <div id="header-title">Library</div>
     <div id="add-book-container">
         <dialog id="add-book-dialog">
+            <form id="add-book-form">
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title"><br>
+                <label for="author">Author:</label><br>
+                <input type="text" id="author" name="author"><br>
+                <label for="pages">Pages:</label><br>
+                <input type="number" id="pages" name="pages"><br>
+                <p>Have you read this book?</p>
+                <input type="radio" id="true" name="read" value="true">
+                <label for="true">True</label><br>
+                <input type="radio" id="false" name="read" value="false">
+                <label for="false">False</label><br>
+
+                <input type="submit" value="submit">
+            </form>
+            
             <button id="dialog-close-button">Close</button>
-            <p>Test</p>
+
+
+            
         </dialog>
     </div>
     <div id="books-container"></div>
