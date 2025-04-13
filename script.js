@@ -27,6 +27,14 @@ function addBook(title, author, pages, read) {
 
 };
 
+function deleteBook(id) {
+    const index = myBooks.findIndex((i) => {
+        return i.id === id;
+      });
+      myBooks.splice(index, 1);
+
+};
+
 // addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
 // addBook('Hello World', 'McHelloFace', 150, false);
 
@@ -62,8 +70,21 @@ function displayBook() {
         const bookCard = document.createElement('div');
         bookCard.className = 'book-card'
         bookCard.textContent = book.info();
+
+        // add book id to book card, used for delete or read status changes
+        bookCard.dataset.id = book.id;
+        
+        
         
         booksContainer.appendChild(bookCard);
+        const bookDelete = document.createElement('button');
+        bookDelete.className = 'delete-book-button';
+        bookDelete.textContent = 'Delete';
+        bookDelete.addEventListener('click', () => {
+            deleteBook(bookCard.dataset.id);
+            displayBook();
+        });
+        bookCard.appendChild(bookDelete);
     });
     
 };
