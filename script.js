@@ -18,6 +18,13 @@ function Book(title, author, pages, read, id) {
 
 }
 
+Book.prototype.updateRead = function(id) {
+    const index = myBooks.findIndex((i) => {
+        return i.id === id;
+      });
+      myBooks[index].read = true;
+};
+
 
 function addBook(title, author, pages, read) {
     let id = crypto.randomUUID();
@@ -34,9 +41,6 @@ function deleteBook(id) {
       myBooks.splice(index, 1);
 
 };
-
-// addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
-// addBook('Hello World', 'McHelloFace', 150, false);
 
 const addBookContainer = document.querySelector('#add-book-container');
 const addBookDialog = document.querySelector('#add-book-dialog');
@@ -71,12 +75,11 @@ function displayBook() {
         bookCard.className = 'book-card'
         bookCard.textContent = book.info();
 
-        // add book id to book card, used for delete or read status changes
-        bookCard.dataset.id = book.id;
-        
-        
+        // add book id to book card for book deleting and updating read status
+        bookCard.dataset.id = book.id;        
         
         booksContainer.appendChild(bookCard);
+
         const bookDelete = document.createElement('button');
         bookDelete.className = 'delete-book-button';
         bookDelete.textContent = 'Delete';
@@ -84,7 +87,20 @@ function displayBook() {
             deleteBook(bookCard.dataset.id);
             displayBook();
         });
+
         bookCard.appendChild(bookDelete);
+
+        const bookRead = document.createElement('button');
+        bookRead.className = 'read-book-button';
+        bookRead.textContent = 'Mark as read';
+        bookRead.addEventListener('click', () => {
+            book.updateRead(bookCard.dataset.id);
+            displayBook();
+        });
+
+        if (book.read === false) {
+            bookCard.appendChild(bookRead);
+        };
     });
     
 };
@@ -96,7 +112,7 @@ addBookForm.addEventListener("submit", (e) => {
     // prevent page reload after form submit
     e.preventDefault();
 
-    // need to add .value to properly get the value of the input and not the element itself
+    // needed to add .value to properly get the value of the input and not the element itself
     let titleValue = document.getElementById("title").value;
     let authorValue = document.getElementById("author").value;
 
