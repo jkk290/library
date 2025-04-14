@@ -1,8 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
 
 body {
     padding: 0;
     margin: 0;
     font-size: 16px;
-    font-family: Roboto, sans-serif;
+    font-family: Inter, sans-serif;
+}
+
+#header-title {
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: greenyellow;
+    text-align: center;
+    border-bottom: solid 15px blue;
+}
+
+#content-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 50px;
+}
+
+#add-book-container {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: flex-end;
+    justify-self: end;
+}
+
+#add-book-container button {
+    font-family: 'Pixelify Sans';
+    font-size: 1.5rem;
+    color: white;
+    background-color: blue;
+    border-style: none;
+    
 }

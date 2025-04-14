@@ -42,6 +42,10 @@ function deleteBook(id) {
 
 };
 
+// adding couple books to array for testing purposes
+addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
+ addBook('Hello World', 'McHelloFace', 150, false);
+
 const addBookContainer = document.querySelector('#add-book-container');
 const addBookDialog = document.querySelector('#add-book-dialog');
 
@@ -73,8 +77,6 @@ function displayBook() {
     myBooks.forEach((book) => {
         const bookCard = document.createElement('div');
         bookCard.className = 'book-card'
-
-        // bookCard.textContent = book.info();
 
         // add book id to book card for book deleting and updating read status
         bookCard.dataset.id = book.id;        
