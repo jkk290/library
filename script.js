@@ -73,12 +73,33 @@ function displayBook() {
     myBooks.forEach((book) => {
         const bookCard = document.createElement('div');
         bookCard.className = 'book-card'
-        bookCard.textContent = book.info();
+
+        // bookCard.textContent = book.info();
 
         // add book id to book card for book deleting and updating read status
         bookCard.dataset.id = book.id;        
         
         booksContainer.appendChild(bookCard);
+
+        const bookTitle = document.createElement('div');
+        bookTitle.className = 'book-title';
+        bookTitle.textContent = book.title;
+        bookCard.appendChild(bookTitle);
+
+        const bookAuthor = document.createElement('div');
+        bookAuthor.className = 'book-author';
+        bookAuthor.textContent = 'Author: ' + book.author;
+        bookCard.appendChild(bookAuthor);
+
+        const bookPages = document.createElement('div');
+        bookPages.className = 'book-pages';
+        bookPages.textContent = 'Pages: ' + book.pages;
+        bookCard.appendChild(bookPages);
+
+        const bookRead = document.createElement('div');
+        bookRead.className = 'book-read';
+        bookRead.textContent = 'Read: ' + book.read;
+        bookCard.appendChild(bookRead);
 
         const bookDelete = document.createElement('button');
         bookDelete.className = 'delete-book-button';
@@ -90,16 +111,16 @@ function displayBook() {
 
         bookCard.appendChild(bookDelete);
 
-        const bookRead = document.createElement('button');
-        bookRead.className = 'read-book-button';
-        bookRead.textContent = 'Mark as read';
-        bookRead.addEventListener('click', () => {
+        const bookReadButton = document.createElement('button');
+        bookReadButton.className = 'read-book-button';
+        bookReadButton.textContent = 'Mark as read';
+        bookReadButton.addEventListener('click', () => {
             book.updateRead(bookCard.dataset.id);
             displayBook();
         });
 
         if (book.read === false) {
-            bookCard.appendChild(bookRead);
+            bookCard.appendChild(bookReadButton);
         };
     });
     
