@@ -1,20 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
+:root {
+    --main-color: #eff1f5;
+    --sub-color: #acb0be;
+    --accent-color: #04a5e5;
+    --text-color: #4c4f69;
+    --subtext-color: #6c6f85;
+}
 
 body {
     padding: 0;
     margin: 0;
     font-size: 16px;
     font-family: Inter, sans-serif;
+    color: var(--text-color);
+    background-color: var(--main-color);
 }
 
 #header-title {
     font-size: 3rem;
     font-weight: bold;
-    background-color: greenyellow;
+    background-color: var(--sub-color);
     text-align: center;
-    border-bottom: solid 15px blue;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 1px 0 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
 }
 
 #content-container {
@@ -31,10 +42,39 @@ body {
 }
 
 #add-book-container button {
-    font-family: 'Pixelify Sans';
     font-size: 1.5rem;
-    color: white;
-    background-color: blue;
+    color: var(--subtext-color);
+    background-color: var(--accent-color);
     border-style: none;
-    
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 1px 0 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+
+#books-container {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.book-card {
+    background-color: var(--sub-color);
+    color: var(--text-color);
+    box-shadow: 1px 0 10px rgba(0, 0, 0, 0.4);
+    border-left: 5px, solid, var(--accent-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 250px;
+    width: 200px;
+}
+
+.book-card button {
+    color: var(--subtext-color);
+    background-color: var(--accent-color);
+    border-style: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
