@@ -43,8 +43,11 @@ function deleteBook(id) {
 };
 
 // adding couple books to array for testing purposes
-addBook('The Hobbit', 'J.R.R Tolkien', 256, true);
- addBook('Hello World', 'McHelloFace', 150, false);
+// addBook('The Hobbit', 'J.R.R Tolkien', 256, 'true');
+// addBook('Hello World', 'McHelloFace', 150, 'false');
+// addBook('Red Rising', 'Pierce Brown', 382, 'true');
+// addBook('Golden Son', 'Pierce Brown', 466, 'true');
+// addBook('Morning Star', 'Pierce Brown', 525, 'false');
 
 const addBookContainer = document.querySelector('#add-book-container');
 const addBookDialog = document.querySelector('#add-book-dialog');
@@ -90,7 +93,7 @@ function displayBook() {
 
         const bookAuthor = document.createElement('div');
         bookAuthor.className = 'book-author';
-        bookAuthor.textContent = 'Author: ' + book.author;
+        bookAuthor.textContent = 'By ' + book.author;
         bookCard.appendChild(bookAuthor);
 
         const bookPages = document.createElement('div');
