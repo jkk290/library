@@ -1,29 +1,53 @@
 const myBooks = [];
 
+// converted using class
 
-function Book(title, author, pages, read, id) {
-    if (!new.target) {
-        throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+    constructor(title, author, pages, read, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read === 'true';
+        this.id = id;
     }
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
 
-    // convert from string to boolean
-    this.read = read === 'true';
-    this.id = id;
-    this.info = function() {
-        return title + ", by "+ author + ', ' + pages + " pages, " + read + ', book id ' + id;
-    };
+    info() {
+        return `${title}, by ${author}, ${pages} pages, ${read}, book id ${id}`;
+    }
 
-}
-
-Book.prototype.updateRead = function(id) {
-    const index = myBooks.findIndex((i) => {
-        return i.id === id;
-      });
-      myBooks[index].read = true;
+    updateRead(id) {
+        const index = myBooks.findIndex((i) => {
+            return i.id === id;
+        });
+        myBooks[index].read = true;
+    }
 };
+
+// previous object constructor 
+
+// function Book(title, author, pages, read, id) {
+//     if (!new.target) {
+//         throw Error("You must use the 'new' operator to call the constructor");
+//     }
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+
+//     // convert from string to boolean
+//     this.read = read === 'true';
+//     this.id = id;
+//     this.info = function() {
+//         return title + ", by "+ author + ', ' + pages + " pages, " + read + ', book id ' + id;
+//     };
+
+// }
+
+// Book.prototype.updateRead = function(id) {
+//     const index = myBooks.findIndex((i) => {
+//         return i.id === id;
+//       });
+//       myBooks[index].read = true;
+// };
 
 
 function addBook(title, author, pages, read) {
